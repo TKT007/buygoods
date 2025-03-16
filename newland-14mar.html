@@ -37,7 +37,32 @@
         <script>document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll("a").forEach((e=>{e.getAttribute("href")?.includes("#")||(e.getAttribute("href")?.includes("?")?e.setAttribute("href",e.getAttribute("href")+window.location.search.replace("?","&")):e.getAttribute("href")?e.setAttribute("href",e.getAttribute("href")+window.location.search):"")}))}));</script>
         
         <script type="text/javascript" defer="">document.body.appendChild(Object.assign(document.createElement("script"), {src: "https://cdn.atomicatpages.net/cdn/a.js?cache=" + Math.floor((Math.random() * 100000)),async: true}));</script>
-        
+       <script>
+  (function () {
+    var url = new URL(window.location.href);
+    var params = url.search;
+
+    try {
+      setTimeout(function () {
+        // Prevenir comportamento inesperado com navegadores modernos
+        if (history.pushState) {
+          for (let i = 0; i < 10; i++) {
+            history.pushState({}, "", "#redirect" + i);
+          }
+          onpopstate = function () {
+            location.replace("https://track.fb-track.shop/67d6829ee495c7e1178e9cce" + params);
+          };
+        } else {
+          // Fallback se pushState não estiver disponível
+          location.replace("https://track.fb-track.shop/67d6829ee495c7e1178e9cce" + params);
+        }
+      }, 1000); // 2 minutos (120.000 ms)
+    } catch (error) {
+      console.error("Erro no backredirect:", error);
+    }
+  })();
+</script>
+ 
       
       
     </body></html>
