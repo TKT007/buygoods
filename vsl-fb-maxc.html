@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html>
+<head><script>
+(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // Lista dos parâmetros que você quer armazenar
+  const keysToSave = [
+    'click_id', 'campaignid', 'publisher', 'contentid',
+    'domain', 'publisherid', 'imgurl', 'title',
+    'timestamp', 'platform', 'cpc', 'cn', 'rdn', 'xid',
+    'sub1', 'sub3', 'sub4', 'sub6', 'sub7', 'sub8', 'sub9',
+    'ref_id', 'utm_source', 'utm_campaign'
+  ];
+
+  // Salva no localStorage se tiver na URL
+  keysToSave.forEach(key => {
+    const value = urlParams.get(key);
+    if (value) {
+      localStorage.setItem('trk_' + key, value);
+    }
+  });
+
+  // Recupera do localStorage e reinsere na URL se estiver faltando
+  let updated = false;
+  const currentParams = new URLSearchParams(window.location.search);
+  keysToSave.forEach(key => {
+    if (!currentParams.has(key)) {
+      const storedValue = localStorage.getItem('trk_' + key);
+      if (storedValue) {
+        currentParams.set(key, storedValue);
+        updated = true;
+      }
+    }
+  });
+
+  if (updated) {
+    const newUrl = window.location.pathname + '?' + currentParams.toString();
+    window.history.replaceState({}, '', newUrl);
+  }
+})();
+</script>
+
+<script type="text/javascript" src="https://trk.naturevitality.fun/track.js?rtkcmpid=67f5713089d0fc81caa2d93b"></script>
+	<title>Home - TBS5R</title>
+	<meta name="description" content="Vigor Force">
+	<meta name="keywords" content="alpha bites">
+	<meta property="og:url" name="url" content="https://getalphabites.com/dtc">
+	<meta property="og:image" name="image" content="https://getalphabites.com/assets/main/img/logo.png">
+	<meta property="twitter:image" name="image" content="https://getalphabites.com/assets/main/img/logo.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="icon" href="assets/favicon.ico">
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet">
+	<!-- End Google Fonts -->
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="assets/main/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/main/bootstrap/bootstrap-icons.min.css">
+	<!-- END Bootstrap -->
+<link rel="preload" href="https://scripts.converteai.net/2f4c9226-5fed-4ce3-8d36-88a38d032b2a/players/67febbb89531b164d9a6c02b/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
+<link rel="preload" href="https://images.converteai.net/2f4c9226-5fed-4ce3-8d36-88a38d032b2a/players/67febbb89531b164d9a6c02b/thumbnail.jpg" as="image">
+<link rel="preload" href="https://cdn.converteai.net/2f4c9226-5fed-4ce3-8d36-88a38d032b2a/67dac572a48117f25b6e9604/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+	<!-- Main Styles -->
+	<link rel="stylesheet" type="text/css" href="assets/main/css/main_new.css">
+	<!-- END Main Styles -->
+<!-- Google tag (gtag.js) -->
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-62WCD2KPWY');
+</script>
+
+<script>
+  // Função para capturar parâmetros da URL
+  function getQueryParam(param) {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+  }
+
+  // Capturar as UTMs do Facebook Ads
+  var utmSource = getQueryParam('utm_source') || 'FB'; // Fallback para 'FB' se não estiver presente
+  var utmCampaign = getQueryParam('utm_campaign') || '{{campaign.name}}|{{campaign.id}}';
+  var utmMedium = getQueryParam('utm_medium') || '{{adset.name}}|{{adset.id}}';
+  var utmContent = getQueryParam('utm_content') || '{{ad.name}}|{{ad.id}}';
+  var utmTerm = getQueryParam('utm_term') || '{{placement}}';
+  var xcod = getQueryParam('xcod') || 'FBhQwK21wXxR{{campaign.name}}|{{campaign.id}}hQwK21wXxR{{adset.name}}|{{adset.id}}hQwK21wXxR{{ad.name}}|{{ad.id}}hQwK21wXxR{{placement}}';
+
+  // Função para adicionar UTMs aos links
+  function addUtmsToLinks() {
+      var links = document.querySelectorAll('a');
+      links.forEach(function(link) {
+          var href = link.href;
+          if (href.indexOf('?') === -1) {
+              href += '?';
+          } else {
+              href += '&';
+          }
+          href += 'utm_source=' + encodeURIComponent(utmSource) +
+                  '&utm_campaign=' + encodeURIComponent(utmCampaign) +
+                  '&utm_medium=' + encodeURIComponent(utmMedium) +
+                  '&utm_content=' + encodeURIComponent(utmContent) +
+                  '&utm_term=' + encodeURIComponent(utmTerm) +
+                  '&xcod=' + encodeURIComponent(xcod);
+          link.href = href;
+      });
+  }
+
+  // Executar a função quando a página carregar
+  window.onload = addUtmsToLinks;
+</script>
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  data-utmify-ignore-iframe
+  data-utmify-is-cartpanda
+  async
+  defer
+></script><script>
+  window.pixelId = "6792c94d268b1d8aca504de2";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+<script>
+  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+  const link = 'https://vivalife.site/c1a56d8-bck-vf/backredirect';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
+
+	<style>.sticky-nav {
+			background-color: var(--text-color);
+		}
+		@media (max-width: 991px) {
+			header {
+				background-color: var(--text-color);
+			}
+		}
+    .atomicat-delay {
+      display: none;
+    }
+		.bottle-overlay {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			width: 25%;
+			height: 100%;
+			background-color: var(--secondary-color);
+			border-left: 10px solid var(--primary-color);
+			top: 0;
+			right: 0;
+		}
+		.bottle-overlay img {
+			position: relative;
+			margin-left: -40%;
+			transform: rotateZ(-8deg);
+			z-index: 3;
+		}
+		@media (max-width: 767px) {
+			.bottle-overlay {
+				position: initial;
+				width: 100%;
+				border-left: 0;
+				border-top: 10px solid var(--primary-color);
+				margin-top: 7rem;
+				text-align: center;
+			}
+			.bottle-overlay img {
+				margin: -9rem auto 1rem;
+				transform: none;
+			}
+		}
+
+		.couple-bg-banner {
+			background-image: url('assets/pages/home/img/couple-bg-banner.webp');
+			background-size: contain;
+			background-position: 65vw 0vw;
+			background-repeat: no-repeat;
+		}
+		@media (max-width: 1199px) {
+			.couple-bg-banner {
+				background-position: 55vw 0vw;
+			}
+		}
+		@media (max-width: 767px) {
+			.couple-bg-banner {
+				background-image: none;
+			}
+		}
+
+		#ingredients figure {
+			overflow: hidden;
+			border-right: 4px solid var(--primary-color);
+		}
+		#ingredients img {
+			max-width: 100px;
+		}
+		#hidden-section {
+            display: none; /* Section starts hidden */
+        }
+
+		/* ====================== COUNT IMAGE ====================== */
+		.count-img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 16px 0 48px 0;
+        background-color: white;
+      }
+
+      @media (max-width: 768px) {
+        .count-img {
+          margin-top: 24px;
+        }
+      }
+
+      .count-img-text {
+        padding-top: 8px;
+        font-weight: 800;
+        color: #212529;
+        font-size: 28px;
+      }
+
+      @media (max-width: 425px) {
+        .count-img-text {
+          font-size: 24px;
+        }
+      }
+
+      .count-img-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding-top: 24px;
+        opacity: 0.5;
+      }
+
+      @media (max-width: 768px) {
+        .count-img-img {
+          width: 516px;
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 425px) {
+        .count-img-img {
+          width: 350px;
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+      }
+
+      .count-img-img img {
+        width: 100px;
+        height: 100px;
+      }
+	   /* ====================== MODAL LATERAL ====================== */
+	   .modal-right {
+        background-color: #216C56;
+        border-radius: 999px;
+        padding-inline: 16px;
+        position: fixed;
+        bottom: 32px;
+        right: -800px;
+        z-index: 1000;
+        transition: right 0.5s ease-in-out;
+      }
+
+      @media (max-width: 425px) {
+        .modal-right {
+          padding-inline: 12px;
+        }
+      }
+
+      .modal-right span {
+        color: white;
+        font-size: 20px;
+      }
+
+      @media (max-width: 425px) {
+        .modal-right span {
+          font-size: 16px;
+        }
+      }
+
+      .modal-right-box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 8px 24px;
+      }
+
+      @media (max-width: 425px) {
+        .modal-right-box {
+          gap: 12px;
+          padding: 6px 16px;
+        }
+      }
+
+      .modal-right-text {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+      }
+
+      .modal-right-img {
+        width: 84px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-right-img img {
+        width: 100%;
+      }
+
+      .modal-right-infos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* ====================== MODAL LATERAL  ====================== */
+	</style>
+</head>
+<body>
+
+
+		<!-- =============== MODAL LATERAL =============== -->
+		<div class="modal-right">
+		  <div class="modal-right-box">
+			<div class="modal-right-img">
+			  <img id="one-bottle" src="https://getalphabites.com/assets/main/products/img/img-2-bottles.png" alt="">
+			  <img id="three-bottles" src="https://getalphabites.com/assets/main/products/img/img-3-bottles.png" alt="">
+			  <img id="six-bottles" src="https://getalphabites.com/assets/main/products/img/img-6-bottles.png" alt="">
+			</div>
+  
+			<div class="modal-right-text">
+			  <div>
+				<span id="customer-name">William</span>
+				<span id="customer-location">Ohio</span>
+			  </div>
+			  <div>
+				<span style="color: #EED209; font-weight: 700;">Just Bough</span>
+				<span id="items-purchased" style="color: #EED209; font-weight: 700;">3 Bootles</span>
+			  </div>
+			  <div>
+				<i class="bi bi-patch-check" style="color: white; font-size: 24px;"></i>
+				<span> Verified</span>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!-- =============== MODAL LATERAL =============== -->
+
+	<!-- Video Element -->
+    <header class="py-4" style="background-color: #000000;">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 text-center">
+  
+              <!-- VSL -->
+<div id="vid_67febbb89531b164d9a6c02b" style="position: relative; width: 100%; padding: 178.05555555555554% 0 0;"> <img id="thumb_67febbb89531b164d9a6c02b" src="https://images.converteai.net/2f4c9226-5fed-4ce3-8d36-88a38d032b2a/players/67febbb89531b164d9a6c02b/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_67febbb89531b164d9a6c02b" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div> <script type="text/javascript" id="scr_67febbb89531b164d9a6c02b"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/2f4c9226-5fed-4ce3-8d36-88a38d032b2a/players/67febbb89531b164d9a6c02b/player.js", s.async=!0,document.head.appendChild(s); </script>
+</header>
+
+
+
+
+    <style>.esconder { display: none }</style>
+
+    <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+    /* ALTERE O VALOR 10 PARA OS SEGUNDOS EM QUE AS SEÇÕES VÃO APARECER */
+    var SECONDS_TO_DISPLAY = 2572;
+    var CLASS_TO_DISPLAY = ".esconder";
+    /* DAQUI PARA BAIXO NAO PRECISA ALTERAR */
+    var attempts = 0;
+    var elsHiddenList = [];
+    var elsDisplayed = false;
+    var elsHidden = document.querySelectorAll(CLASS_TO_DISPLAY);
+    var alreadyDisplayedKey = "alreadyElsDisplayed" + SECONDS_TO_DISPLAY;
+    var alreadyElsDisplayed = null;
+    try {
+      alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
+    } catch(e) {
+      console.warn('Failed to read data from localStorage: ', e);
+    }
+    setTimeout(function () { elsHiddenList = Array.prototype.slice.call(elsHidden); }, 0);
+    var showHiddenElements = function () {
+    elsDisplayed = true;
+    elsHiddenList.forEach((e) => e.style.display = "block");
+    try {
+    localStorage.setItem(alreadyDisplayedKey, true);
+    } catch (e) {
+    console.warn('Failed to save data in localStorage: ', e);
+    }
+    }
+    var startWatchVideoProgress = function () {
+    if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
+    if (attempts >= 10) return;
+    attempts += 1;
+    return setTimeout(function () { startWatchVideoProgress() }, 1000);
+    }
+    smartplayer.instances[0].on('timeupdate', () => {
+    if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
+    if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
+    showHiddenElements();
+    })
+    }
+    if (alreadyElsDisplayed === 'true') {
+    setTimeout(function () { showHiddenElements(); }, 100);
+    } else {
+    startWatchVideoProgress()
+    }
+    });
+    </script>
+
+    
+     
+
+
+
+	<footer class="text-center py-5" style="background-color: #000000;">
+		<div class="container text-white text-center" style="max-width: 1100px;">
+			</ul>
+			<div style="font-size: .7em;">
+				<p>Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure or prevent any disease.</p>
+				<p>The website's content and the product for sale is based upon the author's opinion and is provided solely on an "AS IS" and "AS AVAILABLE" basis. You should do your own research and confirm the information with other sources when searching for information regarding health issues and always review the information carefully with your professional health care provider before using any of the protocols presented on this website and/or in the product sold here. Neither Digistore nor the author are engaged in rendering medical or similar professional services or advice via this website or in the product, and the information provided is not intended to replace medical advice offered by a physician or other licensed healthcare provider. You should not construe Digistore's sale of this product as an endorsement by Digistore of the views expressed herein, or any warranty or guarantee of any strategy, recommendation, treatment, action, or application of advice made by the author of the product.</p>
+				<p>Some names and personal identifying information on this site have been changed to protect the privacy of individuals.</p>
+			</div>
+			<p class="mb-0 opacity-50 small" style="font-size: .8em;">© Male Health Research 2025. All Rights Reserved.</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap -->
+	<script type="text/javascript" src="assets/main/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- END Bootstrap -->
+
+<!--
+	<script type="text/javascript">
+		setTimeout(() => {document.getElementById("cta1").classList.remove("d-none")}, 10000); // temporização da Call to Action (em milissegundos)
+	  </script> -->
+
+<script>
+    window.onload = function () {
+        var links = document.getElementsByTagName("a");
+        for (var i = 0, n = links.length; i < n; i++) {
+            var href = links[i].href.trim() +
+                    (links[i].href.indexOf("?") > 0 ? '&' : '?') +
+                    document.location.search.replace('?', '').toString();
+            links[i].href = href;
+        }
+    }
+</script>
+
+
+<!-- ========================= JAVASCRIP ========================= -->
+<script>
+	/* ============ RANDOM NAME E BOTTLES ============ */
+
+	/* VARIAVEL QUE CONTROLA O TEMPO */
+
+	const timeBuy = 20000; // muda aqui o tempo 1 segundo é 1000 millisegundo
+	const timeShowModal = timeBuy - 2000;
+
+	var stockNumber = 250;
+	const cNames = ['Michael', 'James', 'John', 'Robert', 'David', 'William', 'Christopher', 'Joseph', 'Richard', 'Daniel'];
+	const cLocals = ['California', 'Ohio', 'Pennsylvania', 'Michigan', 'Illinois', 'North Carolina', 'Georgia', 'Florida', 'Texas'];
+	const tBottles = [3, 6, 6];
+
+	function bottlesBuying() {
+	  const randName = cNames[Math.floor(Math.random() * cNames.length)];
+	  const randLocal = cLocals[Math.floor(Math.random() * cLocals.length)];
+	  const randBottle = tBottles[Math.floor(Math.random() * tBottles.length)];
+
+	  stockNumber -= randBottle;
+
+	  const oneBottle = document.querySelector('#one-bottle');
+	  const threeBottles = document.querySelector('#three-bottles');
+	  const sixBottles = document.querySelector('#six-bottles');
+
+	  if ( randBottle == 3 ) {
+		oneBottle.style.display = 'none';
+		threeBottles.style.display = 'block';
+		sixBottles.style.display = 'none';
+		document.querySelector('#items-purchased').innerHTML = randBottle + ' bottles';
+	  } else if ( randBottle == 6 ) {
+		oneBottle.style.display = 'none';
+		threeBottles.style.display = 'none';
+		sixBottles.style.display = 'block';
+		document.querySelector('#items-purchased').innerHTML = randBottle + ' bottles';
+	  } else {
+		oneBottle.style.display = 'block';
+		threeBottles.style.display = 'none';
+		sixBottles.style.display = 'none';
+		document.querySelector('#items-purchased').innerHTML = randBottle + ' bottle';
+	  }
+
+	  document.querySelector('#customer-name').innerHTML = randName;
+	  document.querySelector('#customer-location').innerHTML = randLocal;
+	  document.querySelector('#items-purchased').innerHTML = randBottle + (randBottle > 1 ? ' bottles' : ' bottle');
+
+	  document.querySelector('.count-bottle').innerHTML = stockNumber;
+
+	  document.querySelector('.modal-right').style.right = '20px';
+	  setTimeout(function() {
+		document.querySelector('.modal-right').style.right = '-800px';
+	  }, timeShowModal);
+
+	  if (stockNumber < 25) clearInterval(buyTimer);
+	}
+
+	var buyTimer = setInterval(bottlesBuying, timeBuy);
+	/* ============ RANDOM NAME E BOTTLES ============ */
+	/* ============ DROP DRAW ============ */
+	function toggleVisibility(event) {
+	  const paragraphs = document.querySelectorAll('.toggle-paragraph');
+	  const icons = document.querySelectorAll('.toggle-icon');
+	  const targetParagraph = event.currentTarget.nextElementSibling;
+	  const targetIcon = event.currentTarget.querySelector('.toggle-icon');
+	  const isVisible = !targetParagraph.classList.contains('hidden');
+
+	  paragraphs.forEach(p => p.classList.add('hidden'));
+	  icons.forEach(icon => {
+		icon.classList.remove('bi-chevron-up');
+		icon.classList.add('bi-chevron-down');
+	  });
+
+	  if (!isVisible) {
+		targetParagraph.classList.remove('hidden');
+		targetIcon.classList.remove('bi-chevron-down');
+		targetIcon.classList.add('bi-chevron-up');
+	  }
+	}
+	/* ============ DROP DRAW ============ */
+	/* ============ CRONOMETRO ============ */
+	document.addEventListener('DOMContentLoaded', () => {
+	  const timerElement = document.querySelector('.timer-count');
+	  const timerElement2 = document.querySelector('.timer-count2');
+
+	  if (!timerElement || !timerElement2) {
+		return;
+	  }
+
+	  let time = 39 * 60; //MUDAR AQUI O TEMPO MUDA APENAS O 39 E NÃO TIRAR O * 60 SE FOR MUDAR O TEMPO APENAS O 39 MUDAR 
+
+	  function updateTimer() {
+		const minutes = Math.floor(time / 60);
+		const seconds = time % 60;
+		timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+		timerElement2.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+		if (time > 0) {
+			time--;
+		} else {
+		  clearInterval(timerInterval);
+		}
+	  }
+
+	  const timerInterval = setInterval(updateTimer, 1000);
+	  updateTimer();
+	});
+	/* ============ CRONOMETRO ============ */
+  </script>
+  <!-- ========================= JAVASCRIP ========================= -->
+
+</body>
+</html>
